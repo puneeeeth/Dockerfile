@@ -1,0 +1,18 @@
+FROM ubuntu:latest
+
+RUN apt-get  -y update
+RUN apt-get  install apache2 curl
+
+EXPOSE 80
+
+WORKDIR /var/www/html
+COPY index.html /var/www/html/index.html
+
+ENTRYPOINT ["usr/sbin/apache2ctl"]
+
+CMD ["-D" , "FOREGROUND"]
+
+
+
+
+
